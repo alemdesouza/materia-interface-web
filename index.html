@@ -7,6 +7,7 @@
     <meta name="description" content="Este é um site de notícias" />
     <meta name="keywords" content="noticias, news, informação do dia" />
     <link rel="stylesheet" type="text/css" href="./index.css" />
+    <script src="db.js"></script>
   </head>
   <body>
     <header>
@@ -44,16 +45,9 @@
     <section id="reportagem-principal">
       <main>
         <div id="info-reportagem">
-          <a href="./noticia1.html">
-            <img
-              src="https://static01.nyt.com/images/2019/03/28/us/politics/00dc-military1/merlin_152734272_746f1df7-7f7c-4a1e-82c5-8f5222d67a27-superJumbo.jpg?quality=90&auto=webp"
-              width="400px"
-              height="300px"
-            />
+          <a href="./noticia1.html" id="link-noticia">
           </a>
-          <h1>
-            Russia's Military Mission Creep Advances to a New Front: Africa
-          </h1>
+          <div id="titulos-reportagem"></div>
         </div>
         <nav id="menu-secundario">
           <a href="/pagina1">1</a>
@@ -64,10 +58,7 @@
           <a href="/pagina6">6</a>
         </nav>
       </main>
-      <aside>
-        <p>Promoção de assinatura</p>
-        <p>Assinando hoje, você não paga os primeiros 30 dias. Assine já!</p>
-      </aside>
+      <aside id="propagandas"></aside>
     </section>
 
     <footer>
@@ -80,5 +71,31 @@
         <a href="/destaquedodia">Saiba mais</a>
       </article>
     </footer>
+
+    <script>
+      /* Insere título e subtítulo da reportagem principal*/
+      var tituloreportagem = document.createElement("h1");
+      tituloreportagem.innerText = bancofake.noticias[0].titulo;
+      document
+        .getElementById("titulos-reportagem")
+        .appendChild(tituloreportagem);
+
+      var resenha = document.createElement("h2");
+      resenha.innerText = bancofake.noticias[0].resenha;
+      document.getElementById("titulos-reportagem").appendChild(resenha);
+
+      var imagem = document.createElement("img");
+      imagem.setAttribute("src", bancofake.noticias[0].imagem);
+      imagem.setAttribute("width", "400px");
+      imagem.setAttribute("height", "300px");
+      document.getElementById("link-noticia").prepend(imagem);
+
+      /* Insere as propagandas*/
+      for (var i = 0; i < bancofake.propagandas.length; i = i + 1) {
+        var propaganda = document.createElement("p");
+        propaganda.innerText = bancofake.propagandas[i].titulo;
+        document.getElementById("propagandas").appendChild(propaganda);
+      }
+    </script>
   </body>
 </html>
