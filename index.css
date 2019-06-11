@@ -24,8 +24,7 @@ header {
 }
 #reportagem-principal {
   width: 100%;
-  display: grid;
-  grid-template-columns: 80% 20%;
+
 }
 #info-reportagem {
   display: grid;
@@ -57,13 +56,23 @@ aside {
   aside {
     display: none;
   }
-  #reportagem-principal {
-    display: grid;
-    grid-template-columns: 100% 0%;
-  }
+
   #menu-principal{
     grid-template-rows: 50px 50px;
     grid-template-columns: repeat(4, calc(100% / 4 - 10px));
     grid-row-gap: 10px;
   }
+}
+
+.noticia{
+  height: 300px;
+  width: 80%;
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  justify-content:space-between;
+}
+.imagem-padrao{
+width: 300px;
+height: auto;
 }
